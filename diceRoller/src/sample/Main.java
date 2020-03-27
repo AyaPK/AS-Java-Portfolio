@@ -35,17 +35,17 @@ public class Main extends Application {
         rollButton.setOnAction(e -> {
             result = dice.roll(Integer.parseInt(diceToRoll.getText()), Integer.parseInt(maxRoll.getText()));
             output.setText(result);
-            primaryStage.setHeight(200+(18*Integer.parseInt(diceToRoll.getText())));
+            primaryStage.setHeight(200+(22*Integer.parseInt(diceToRoll.getText())));
         });
 
         HBox roll1 = new HBox(20);
         roll1.getChildren().addAll(diceToRollLabel, diceToRoll);
 
         HBox roll2 = new HBox(20);
-        roll2.getChildren().addAll(maxNumLabel, maxRoll);
+        roll2.getChildren().addAll(maxNumLabel, maxRoll, rollButton);
 
         VBox layout = new VBox(20);
-        layout.getChildren().addAll(roll1, roll2, rollButton, output);
+        layout.getChildren().addAll(roll1, roll2, output);
 
         scene = new Scene(layout, 350, 200);
         primaryStage.setScene(scene);
