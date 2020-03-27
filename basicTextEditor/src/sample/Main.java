@@ -15,7 +15,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.File;
-
 import java.awt.Desktop;
 
 
@@ -23,6 +22,7 @@ public class Main extends Application {
 
     Scene scene1;
     Button showButton;
+    WriteToFile writer = new WriteToFile();
 
     public static void main(String[] args) {
         launch(args);
@@ -39,15 +39,7 @@ public class Main extends Application {
 
         showButton = new Button("Save text");
         showButton.setOnAction(e -> {
-            try {
-                FileWriter write = new FileWriter(saveFileName.getText()+".txt", false);
-                PrintWriter print = new PrintWriter(write);
-                print.printf(mainTextArea.getText());
-                print.close();
-            }
-            catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            writer.save(mainTextArea.getText(), saveFileName.getText());
         });
 
         VBox layout1 = new VBox(20);
