@@ -1,0 +1,1 @@
+A minimalistic text editor created to test JavaFX GUI design and Java writing to a Text file
